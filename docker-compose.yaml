@@ -1,50 +1,26 @@
-name: ecowitt_net
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+version: '3.8'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+services:
+  ecowitt_net:
+    image: python:3.8-slim
+    container_name: ecowitt_net_service
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install -r requirements.txt && pytest"
+    networks:
+      - ecowitt_net_network
+    ports:
+      - "8000:8000"
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+volumes:
+  ecowitt_net_volume:
+    driver: local
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+networks:
+  ecowitt_net_network:
+    driver: bridge
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+configs: {}
 
-    - name: Run tests
-      run: |
-        pytest
-
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
-
-    - name: Install flake8
-      run: |
-        pip install flake8
-
-    - name: Run linter
-      run: |
-        flake8 ecowitt_net
+secrets: {}
