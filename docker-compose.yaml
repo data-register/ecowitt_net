@@ -3,7 +3,6 @@ version: '3.8'
 services:
   ecowitt_net:
     image: python:3.8-slim
-    container_name: ecowitt_net_service
     volumes:
       - .:/app
     working_dir: /app
