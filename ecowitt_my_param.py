@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #  your ApplicationKey and ApiKey created in https://www.ecowitt.net/user/index (after login)
-ApplicationKey = 'AB828BC47801AA93BB69DD180F0E0EFE'
-ApiKey = 'af0fad25-1ded-44d6-995f-ce68674fab09'
+ApplicationKey = '61759DF4094EBA1A61E070A285A2DAF7'
+ApiKey = 'fe33f769-d487-433c-a31d-8e504df4076f'
 
 # MAC address of corresponding meteostation
-MAC_station = '30:83:98:A6:FF:EE'
+MAC_station = '48:E7:29:5F:72:44'
 
 # Units for requested data, see :  https://doc.ecowitt.net/web/#/apiv3en?page_id=17
 UnitsEcowitt = '&temp_unitid=1&pressure_unitid=3&wind_speed_unitid=7&rainfall_unitid=12&solar_irradiance_unitid=16'
