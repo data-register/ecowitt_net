@@ -8,16 +8,16 @@ services:
     working_dir: /app
     command: bash -c "pip install -r requirements.txt && pytest"
     networks:
-      - ecowitt_net_network
+      - coolify
     ports:
-      - "8080:8000"
+      - "8090:8000"
 
 volumes:
   ecowitt_net_volume:
     driver: local
 
 networks:
-  ecowitt_net_network:
+  coolify:
     driver: bridge
 
 configs: {}
